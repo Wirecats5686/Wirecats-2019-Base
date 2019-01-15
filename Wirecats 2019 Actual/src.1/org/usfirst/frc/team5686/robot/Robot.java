@@ -26,6 +26,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 	public static DriveTrain drivetrain;
+	public static Compressor compressor;
+	public static Solenoid solenoid; 
 	
 	
 	public static OI oi;
