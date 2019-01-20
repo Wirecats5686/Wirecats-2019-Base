@@ -1,4 +1,4 @@
-package org.usfirst.frc.team5686.robot;
+package frc.robot;
 
 /**
  * The RobotMap is a mapping from the ports sensors and actuators are wired into
@@ -8,10 +8,10 @@ package org.usfirst.frc.team5686.robot;
  */
 public class RobotMap {
 	// drive train pwm ports
-	public static int rightFrontDrive = 1;
-	public static int rightRearDrive = 2;
+	public static int rightFrontDrive = 4;
+	public static int rightRearDrive = 1;
 	public static int leftFrontDrive = 3;
-	public static int leftRearDrive = 4;
+	public static int leftRearDrive = 2;
 	
 	
     

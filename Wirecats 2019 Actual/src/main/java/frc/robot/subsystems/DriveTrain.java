@@ -1,14 +1,13 @@
-package org.usfirst.frc.team5686.robot.subsystems;
+package frc.robot.subsystems;
 
-import org.usfirst.frc.team5686.robot.RobotMap;
-import org.usfirst.frc.team5686.robot.commands.TankDrive;
+import frc.robot.RobotMap;
+import frc.robot.commands.TankDrive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
-import edu.wpi.first.wpilibj.RobotDrive;
+import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
-import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 
 /**
  * The robot's drivetrain

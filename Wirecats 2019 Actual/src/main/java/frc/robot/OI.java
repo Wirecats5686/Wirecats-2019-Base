@@ -1,14 +1,9 @@
-package org.usfirst.frc.team5686.robot;
+package frc.robot;
 
-
-import org.usfirst.frc.team5686.robot.triggers.IntakeInPOV;
-import org.usfirst.frc.team5686.robot.triggers.IntakeOutPOV;
-import org.usfirst.frc.team5686.robot.commands.*;
+import frc.robot.commands.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
-import edu.wpi.first.wpilibj.buttons.Trigger;
-import edu.wpi.first.wpilibj.command.Command;
 
 /**
  * This class is the glue that binds the controls on the physical operator
