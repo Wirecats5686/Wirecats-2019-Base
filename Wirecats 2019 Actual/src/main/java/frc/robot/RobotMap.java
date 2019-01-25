@@ -7,11 +7,11 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
-	// drive train pwm ports
+	// drive train can IDs
 	public static int rightFrontDrive = 4;
-	public static int rightRearDrive = 1;
-	public static int leftFrontDrive = 3;
-	public static int leftRearDrive = 2;
+	public static int rightRearDrive = 7;
+	public static int leftFrontDrive = 5;
+	public static int leftRearDrive = 6;
 	
 	
     

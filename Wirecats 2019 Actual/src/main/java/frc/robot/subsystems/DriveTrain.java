@@ -4,6 +4,7 @@ import frc.robot.RobotMap;
 import frc.robot.commands.TankDrive;
 
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
+import com.ctre.phoenix.motorcontrol.can.WPI_VictorSPX;
 
 import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
@@ -16,9 +17,9 @@ public class DriveTrain extends Subsystem {
 	private static DifferentialDrive drive;
 	
 	private WPI_TalonSRX rightFront;
-	private WPI_TalonSRX rightRear;
+	private WPI_VictorSPX rightRear;
 	private WPI_TalonSRX leftFront;
-	private WPI_TalonSRX leftRear;
+	private WPI_VictorSPX leftRear;
 	
 	// tune these to adjust it so the joysticks act the same
 	private static final double BIAS_MULTIPLIER_RIGHT = 1;
@@ -31,9 +32,9 @@ public class DriveTrain extends Subsystem {
 		super("DriveTrain");
 		
 		rightFront = new WPI_TalonSRX(RobotMap.rightFrontDrive);
-		rightRear = new WPI_TalonSRX(RobotMap.rightRearDrive);
+		rightRear = new WPI_VictorSPX(RobotMap.rightRearDrive);
 		leftFront = new WPI_TalonSRX(RobotMap.leftFrontDrive);
-		leftRear = new WPI_TalonSRX(RobotMap.leftRearDrive);
+		leftRear = new WPI_VictorSPX(RobotMap.leftRearDrive);
 		SpeedControllerGroup m_left = new SpeedControllerGroup (leftFront, leftRear);
 		SpeedControllerGroup m_right = new SpeedControllerGroup (rightFront, rightRear);
 		
