@@ -37,6 +37,8 @@ public class OI {
 	Joystick right;
 	Joystick gamepad;
 	
+	JoystickButton hatchGrab;
+	JoystickButton hatchRelease;
 	
 	JoystickButton tankDrive;
 	JoystickButton tankDrive2;
@@ -55,17 +57,8 @@ public class OI {
 		
 		// set up buttons here
 		
-		
-		
-		
-		
-		
-		////downScale = new JoystickButton(js3,1);
-		//downScale.toggleWhenActive(new DownScale());
-		
-		
-		//arcadeDrive = new JoystickButton(js1, 8);
-		//arcadeDrive2 = new JoystickButton(js2, 8);
+		hatchGrab = new JoystickButton(gamepad, 6);
+		hatchRelease = new JoystickButton(gamepad, 5);
 		
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
@@ -75,12 +68,9 @@ public class OI {
 		slowDrive = new JoystickButton(left, 3);
 		slowDrive2 = new JoystickButton(right, 3);
 
-		
-		
-		// toggles because when this command is toggled off it defaults to tank
-		//arcadeDrive.whenPressed(new ArcadeDrive());
-		//arcadeDrive2.whenPressed(new ArcadeDrive());
-		
+		hatchGrab.whenPressed(new HatchGrab(0.5));
+		hatchRelease.whenPressed(new HatchRelease(0.5));
+
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
 		tankDrive3.whenPressed(new TankDrive());
@@ -107,7 +97,7 @@ public class OI {
 		return right;
 	}
 	
-	public Joystick getlogitechController(){
+	public Joystick getGamepad(){
 		return gamepad;
 	}
 }

@@ -25,7 +25,8 @@ import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
  */
 public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
-	public static Compressor compressor;
+  public static Compressor compressor;
+  public static RobotSolenoid hatchSolenoid;
 	
 	
 	public static OI oi;
@@ -44,7 +45,8 @@ public class Robot extends TimedRobot {
 		
 		compressor = new Compressor(0);
 		compressor.start ();
-		
+    
+    hatchSolenoid = new RobotSolenoid("double");
 
 		//compressor.setClosedLoopControl(true);
 		//compressor.setClosedLoopControl(false);
