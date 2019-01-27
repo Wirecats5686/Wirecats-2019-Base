@@ -57,8 +57,8 @@ public class OI {
 		
 		// set up buttons here
 		
-		hatchGrab = new JoystickButton(gamepad, 6);
-		hatchRelease = new JoystickButton(gamepad, 5);
+		hatchGrab = new JoystickButton(gamepad, GamepadMap.rightShoulder);
+		hatchRelease = new JoystickButton(gamepad, GamepadMap.leftShoulder);
 		
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
