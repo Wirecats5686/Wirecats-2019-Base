@@ -9,6 +9,7 @@ package frc.robot;
 
 import frc.robot.subsystems.*;
 
+import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
@@ -27,7 +28,8 @@ public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
   public static Compressor compressor;
   public static RobotSolenoid hatchSolenoid;
-	
+  public static UsbCamera camera1;
+	public static UsbCamera camera2;
 	
 	public static OI oi;
 	
@@ -62,8 +64,11 @@ public class Robot extends TimedRobot {
 		// SmartDashboard.putData("Auto mode", chooser);
         
 		//autonomousCommand=new Autonomous();
-		
-        CameraServer.getInstance().startAutomaticCapture();
+    
+    // set up for switching between 2 cameras
+    // CameraServer.getInstance().startAutomaticCapture();
+    camera1 = CameraServer.getInstance().startAutomaticCapture(0);
+    camera2 = CameraServer.getInstance().startAutomaticCapture(1);
   }
 
   	/**
