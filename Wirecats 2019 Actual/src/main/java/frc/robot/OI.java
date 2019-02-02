@@ -39,7 +39,10 @@ public class OI {
 	
 	JoystickButton hatchGrab;
 	JoystickButton hatchRelease;
-	
+	// TODO: determine buttons/triggers for cargo
+	JoystickButton cargoIntake;
+	JoystickButton cargoShoot;
+
 	JoystickButton tankDrive;
 	JoystickButton tankDrive2;
 	JoystickButton tankDrive3;
@@ -59,7 +62,9 @@ public class OI {
 		
 		hatchGrab = new JoystickButton(gamepad, GamepadMap.rightShoulder);
 		hatchRelease = new JoystickButton(gamepad, GamepadMap.leftShoulder);
-		
+		cargoIntake = new JoystickButton(gamepad, GamepadMap.aButton);
+		cargoShoot = new JoystickButton(gamepad, GamepadMap.bButton);
+
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
 		tankDrive3 = new JoystickButton(left, 4);
@@ -70,6 +75,8 @@ public class OI {
 
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
+		cargoIntake.whenPressed(new CargoIntake());
+		cargoShoot.whenPressed(new CargoShoot());
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
