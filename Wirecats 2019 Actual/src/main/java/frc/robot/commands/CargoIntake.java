@@ -4,9 +4,9 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CargoIntake extends Command {
-    // TODO: Replace hatchSolenoid and determine solonoid/design for cargo subsystem
+    // TODO: Replace hatchSolenoid with implementation similar to drive
     public CargoIntake() {
-        // requires(Robot.hatchSolenoid);
+        requires(Robot.drivetrain);
         setInterruptible(true);
     }
 
