@@ -33,7 +33,7 @@ public class RobotSolenoid extends Subsystem {
      *   currently does nothing
      */
     public void initDefaultCommand() {
-        //Not using
+        // Nothing needs to be called when we initialize this subsystem
     }
 
     /**

@@ -6,7 +6,7 @@ import edu.wpi.first.wpilibj.command.Command;
 public class CargoShoot extends Command {
     // TODO: Replace hatchSolenoid with implementation similar to drive
     public CargoShoot() {
-        requires(Robot.drivetrain);
+        requires(Robot.cargo);
         setInterruptible(true);
     }
 

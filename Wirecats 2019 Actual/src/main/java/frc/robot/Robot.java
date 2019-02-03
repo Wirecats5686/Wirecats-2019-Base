@@ -28,6 +28,7 @@ public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
   public static Compressor compressor;
   public static RobotSolenoid hatchSolenoid;
+  public static Cargo cargo;
   public static UsbCamera camera1;
 	public static UsbCamera camera2;
 	
@@ -49,14 +50,13 @@ public class Robot extends TimedRobot {
 		compressor.start ();
     
     hatchSolenoid = new RobotSolenoid("double");
+    
+    cargo = new Cargo();
 
 		//compressor.setClosedLoopControl(true);
 		//compressor.setClosedLoopControl(false);
 		
 		oi = new OI();
-		
-		// run this after since dependancies
-		oi.setUpTriggers();
 		
 		// chooser = new SendableChooser();
 		// chooser.addDefault("Default Auto", new ExampleCommand());
