@@ -1,9 +1,11 @@
 package frc.robot;
 
 import frc.robot.commands.*;
+import frc.robot.triggers.*;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.JoystickButton;
+import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -39,9 +41,12 @@ public class OI {
 	
 	JoystickButton hatchGrab;
 	JoystickButton hatchRelease;
-	// TODO: determine buttons/triggers for cargo
 	JoystickButton cargoIntake;
-	JoystickButton cargoShoot;
+
+	// For "shooting" cargo into Rocket
+	Trigger lowCargoShoot;
+	// For "shooting" cargo into Cargo Ship
+	Trigger highCargoShoot;
 
 	JoystickButton tankDrive;
 	JoystickButton tankDrive2;
@@ -60,10 +65,15 @@ public class OI {
 		
 		// set up buttons here
 		
-		hatchGrab = new JoystickButton(gamepad, GamepadMap.rightShoulder);
-		hatchRelease = new JoystickButton(gamepad, GamepadMap.leftShoulder);
-		cargoIntake = new JoystickButton(gamepad, GamepadMap.aButton);
-		cargoShoot = new JoystickButton(gamepad, GamepadMap.bButton);
+		hatchGrab = new JoystickButton(gamepad, GamepadMap.aButton);
+		hatchRelease = new JoystickButton(gamepad, GamepadMap.rightShoulder);
+		cargoIntake = new JoystickButton(gamepad, GamepadMap.yButton);
+
+		// Right trigger button = high cargo shoot (Cargo Ship cargo)
+		highCargoShoot = new HighShootTrigger(); 
+
+		// Left trigger button -> low cargo shoot (Rocket cargo)
+		lowCargoShoot = new LowShootTrigger();
 
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
@@ -75,8 +85,11 @@ public class OI {
 
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
-		cargoIntake.whenPressed(new CargoIntake());
-		cargoShoot.whenPressed(new CargoShoot());
+		cargoIntake.whileHeld(new CargoIntake());
+		// TODO:  Figure out if we need two different command classes or 
+		// pass an item in the construtor to indicate which shoot type is being executed
+		lowCargoShoot.whileActive(new CargoShoot());
+		highCargoShoot.whileActive(new CargoShoot());
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
@@ -85,15 +98,6 @@ public class OI {
 		
 		slowDrive.whenPressed(new SlowDrive());
 		slowDrive2.whenPressed(new SlowDrive());
-	}
-	
-	public void setUpTriggers(){
-		/*// intake POV controls
-		intakeIn = new IntakeInPOV();
-		intakeIn.whenActive(new IntakeIn());
-		intakeOut = new IntakeOutPOV();
-		intakeOut.whenActive(new IntakeOut());
-		cancelIntake.whenActive(new IntakeOff ());*/
 	}
 	
 	public Joystick getLeft(){
