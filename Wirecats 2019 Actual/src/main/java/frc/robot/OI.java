@@ -43,9 +43,9 @@ public class OI {
 	JoystickButton hatchRelease;
 	JoystickButton cargoIntake;
 
-	// For "shooting" cargo into Rocket
-	Trigger lowCargoShoot;
 	// For "shooting" cargo into Cargo Ship
+	Trigger lowCargoShoot;
+	// For "shooting" cargo into Rocket
 	Trigger highCargoShoot;
 
 	JoystickButton tankDrive;
@@ -69,14 +69,14 @@ public class OI {
 		hatchRelease = new JoystickButton(gamepad, GamepadMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadMap.yButton);
 
-		// Right trigger button = high cargo shoot (Cargo Ship cargo)
+		// Right trigger button = high cargo shoot (Rocket cargo)
 		highCargoShoot = new HighShootTrigger(); 
 
-		// Left trigger button -> low cargo shoot (Rocket cargo)
+		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
 		lowCargoShoot = new LowShootTrigger();
 
 		// TODO: map triggers to gamepad
-		
+
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
 		tankDrive3 = new JoystickButton(left, 4);

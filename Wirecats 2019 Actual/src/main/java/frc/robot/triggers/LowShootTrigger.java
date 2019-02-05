@@ -4,7 +4,7 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
- * This is the trigger to shoot the cargo into a Rocket slot
+ * This is the trigger to shoot the cargo into a Cargo Ship slot
  */
 public class LowShootTrigger extends Trigger {
     /*TODO: Need to figure out what default value is when trigger is not being pressed
