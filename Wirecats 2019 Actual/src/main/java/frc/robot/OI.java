@@ -63,8 +63,7 @@ public class OI {
 		right = new Joystick(1);
 		gamepad = new Joystick(2);
 		
-		// set up buttons here
-		
+		// set up buttons here	
 		hatchGrab = new JoystickButton(gamepad, GamepadMap.aButton);
 		hatchRelease = new JoystickButton(gamepad, GamepadMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadMap.yButton);
@@ -75,7 +74,9 @@ public class OI {
 		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
 		lowCargoShoot = new LowShootTrigger();
 
-		// TODO: map triggers to gamepad
+		// TODO: map triggers to gamepad;
+		// We may need to change HighShootTrigger and LowShootTrigger classes to accomodate this
+		// Also, what value on gamepad would map to these triggers?
 
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
