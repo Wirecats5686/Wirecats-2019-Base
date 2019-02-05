@@ -75,6 +75,8 @@ public class OI {
 		// Left trigger button -> low cargo shoot (Rocket cargo)
 		lowCargoShoot = new LowShootTrigger();
 
+		// TODO: map triggers to gamepad
+		
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
 		tankDrive3 = new JoystickButton(left, 4);
@@ -86,10 +88,8 @@ public class OI {
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
 		cargoIntake.whileHeld(new CargoIntake());
-		// TODO:  Figure out if we need two different command classes or 
-		// pass an item in the construtor to indicate which shoot type is being executed
-		lowCargoShoot.whileActive(new CargoShoot());
-		highCargoShoot.whileActive(new CargoShoot());
+		lowCargoShoot.whileActive(new CargoShoot(lowCargoShoot.get()));
+		highCargoShoot.whileActive(new CargoShoot(highCargoShoot.get()));
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
