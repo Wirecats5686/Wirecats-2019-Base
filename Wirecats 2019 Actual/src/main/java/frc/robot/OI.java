@@ -74,10 +74,6 @@ public class OI {
 		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
 		lowCargoShoot = new LowShootTrigger();
 
-		// TODO: map triggers to gamepad;
-		// We may need to change HighShootTrigger and LowShootTrigger classes to accomodate this
-		// Also, what value on gamepad would map to these triggers?
-
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
 		tankDrive3 = new JoystickButton(left, 4);
@@ -89,8 +85,8 @@ public class OI {
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
 		cargoIntake.whileHeld(new CargoIntake());
-		lowCargoShoot.whileActive(new CargoShoot(lowCargoShoot.get()));
-		highCargoShoot.whileActive(new CargoShoot(highCargoShoot.get()));
+		lowCargoShoot.whileActive(new CargoShoot());
+		highCargoShoot.whileActive(new CargoShoot());
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
