@@ -30,9 +30,9 @@ public class Arm extends Subsystem{
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new RunArm());
-
-    }
+        setDefaultCommand(new RunArm(true));
+	}
+	
     public void set(double speed){
 		if(getUpSwitch() && speed < 0){
 			setBoth(0);
@@ -50,11 +50,11 @@ public class Arm extends Subsystem{
 		arm_motor_b.set(speed);
 	}
 	
-	private boolean getDownSwitch(){
+	public boolean getDownSwitch(){
 		return !down.get();
 	}
 	
-	private boolean getUpSwitch(){
+	public boolean getUpSwitch(){
 		return !up.get();
 	}
 

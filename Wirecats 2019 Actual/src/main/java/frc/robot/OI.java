@@ -48,6 +48,9 @@ public class OI {
 	// For "shooting" cargo into Rocket
 	Trigger highCargoShoot;
 
+	Trigger armUp;
+	Trigger armDown;
+
 	JoystickButton tankDrive;
 	JoystickButton tankDrive2;
 	JoystickButton tankDrive3;
@@ -74,6 +77,9 @@ public class OI {
 		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
 		lowCargoShoot = new LowShootTrigger();
 
+		armUp = new ArmUp();
+		armDown = new ArmDown();
+
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
 		tankDrive3 = new JoystickButton(left, 4);
@@ -87,6 +93,10 @@ public class OI {
 		cargoIntake.whileHeld(new CargoIntake());
 		lowCargoShoot.whileActive(new CargoShoot());
 		highCargoShoot.whileActive(new CargoShoot());
+
+		armUp.whenActive(new RunArm(true));
+		armDown.whenActive(new RunArm(false));
+
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());

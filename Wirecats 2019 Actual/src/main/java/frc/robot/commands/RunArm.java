@@ -8,8 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
  * Control the arm
  */
 public class RunArm extends Command {
+    private boolean goingUp;
 
-    public RunArm() {
+    public RunArm(boolean goingUp) {
+        this.goingUp = goingUp;
         requires(Robot.arm);
     }
 
@@ -18,14 +20,25 @@ public class RunArm extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-        // negate the axis value since down is positive, and we want down to be negative
-        // TODO: ask hannah which gamepad button works best and change number value to match
-    	Robot.arm.set(-Robot.oi.getGamepad().getRawAxis(5));
+        /*Check to see if the arm should go up or down; 
+        arm will be set to 1 if we are otherwise will be set to -1 (going down)*/
+        if (goingUp){
+            Robot.arm.set(1);
+        }
+        else {
+            Robot.arm.set(-1);
+        }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return false;
+        // When arm is being raised, return whether we've hit the "upSwitch"
+        if (goingUp){
+            return Robot.arm.getUpSwitch();
+        }
+
+        // Otherwise, return whether we've hit the "downSwitch"
+        return Robot.arm.getDownSwitch();
     }
 
     // Called once after isFinished returns true
