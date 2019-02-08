@@ -67,6 +67,7 @@ public class OI {
 		gamepad = new Joystick(2);
 		
 		// set up buttons here	
+		// TODO: Identify gamepad mapping for climber
 		hatchGrab = new JoystickButton(gamepad, GamepadMap.aButton);
 		hatchRelease = new JoystickButton(gamepad, GamepadMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadMap.yButton);

@@ -32,7 +32,7 @@ public class Robot extends TimedRobot {
   public static UsbCamera camera1;
   public static UsbCamera camera2;
   public static Arm arm;
-  
+  public static Climber climber;
 	
 	public static OI oi;
 	
@@ -54,7 +54,7 @@ public class Robot extends TimedRobot {
     hatchSolenoid = new RobotSolenoid("double");
     
     cargo = new Cargo();
-
+    climber = new Climber();
     arm = new Arm();
 
 		//compressor.setClosedLoopControl(true);
