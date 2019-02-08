@@ -4,20 +4,19 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class CargoIntake extends Command {
-    // TODO: Replace hatchSolenoid with implementation similar to drive
     public CargoIntake() {
         requires(Robot.cargo);
         setInterruptible(true);
     }
 
     protected void execute() {
-        //Robot.hatchSolenoid.SolenoidExtend();
+        Robot.cargo.intakeCargo();
     }
 	protected boolean isFinished() {
 		return isTimedOut();
 	}
     protected void end() {
-    	//Robot.hatchSolenoid.stop();
+    	Robot.cargo.stopIntake();
     }
     // subsystems is scheduled to run
     protected void interrupted() {

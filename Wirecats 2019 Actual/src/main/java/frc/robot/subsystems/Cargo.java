@@ -36,14 +36,14 @@ public class Cargo extends Subsystem{
     }
 
     /** 
-     * Have robot shoot Cargo into a Rocket slot
+     * Have robot shoot Cargo into a Rocket slot (low shoot)
      */
     public void shootIntoRocket(){
         shoot.set(ROCKET_SHOOT);
     }
 
     /** 
-     * Have robot shoot Cargo into a Cargo Ship slot
+     * Have robot shoot Cargo into a Cargo Ship slot (high shoot)
      */
     public void shootIntoCargoShip(){
         shoot.set(SHIP_SHOOT);
@@ -56,4 +56,12 @@ public class Cargo extends Subsystem{
         intake.set(HOLD_SPEED);
         shoot.set(-HOLD_SPEED);
     }
+
+    public void stopIntake(){
+		intake.set(0);
+    }
+    
+    public void stopShoot(){
+		shoot.set(0);
+	}
 }

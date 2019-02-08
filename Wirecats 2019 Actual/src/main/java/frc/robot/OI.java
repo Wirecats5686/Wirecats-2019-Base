@@ -92,8 +92,8 @@ public class OI {
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
 		cargoIntake.whileHeld(new CargoIntake());
-		lowCargoShoot.whileActive(new CargoShoot());
-		highCargoShoot.whileActive(new CargoShoot());
+		lowCargoShoot.whileActive(new CargoShoot(false));
+		highCargoShoot.whileActive(new CargoShoot(true));
 
 		armUp.whenActive(new RunArm(true));
 		armDown.whenActive(new RunArm(false));
