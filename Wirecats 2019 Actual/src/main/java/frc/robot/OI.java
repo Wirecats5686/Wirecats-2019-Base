@@ -58,7 +58,9 @@ public class OI {
 	
 	JoystickButton slowDrive;
 	JoystickButton slowDrive2;
-	
+
+	// TODO: Confirm gamepad mapping for climber
+	JoystickButton climb;
 	
 	public OI(){
 		// init joysticks
@@ -70,6 +72,7 @@ public class OI {
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
 		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
+		climb = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
 
 		// Right trigger button = high cargo shoot (Rocket cargo)
 		// Note that button mapping for triggers will occur in corresponding trigger class
@@ -98,6 +101,7 @@ public class OI {
 		armUp.whenActive(new RunArm(true));
 		armDown.whenActive(new RunArm(false));
 
+		climb.whileHeld(new Climb());
 
 		tankDrive.whenPressed(new TankDrive());
 		tankDrive2.whenPressed(new TankDrive());
