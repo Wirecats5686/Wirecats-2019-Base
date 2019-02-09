@@ -1,6 +1,7 @@
 //this is where the subsystem code for the climber will go
 package frc.robot.subsystems;
 
+import frc.robot.commands.Climb;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 public class Climber extends Subsystem {
@@ -10,6 +11,6 @@ public class Climber extends Subsystem {
     }
 
     public void initDefaultCommand() {
-
+        setDefaultCommand(new Climb());
     }
 }
