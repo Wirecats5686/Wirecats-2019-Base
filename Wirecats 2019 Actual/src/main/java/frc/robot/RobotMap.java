@@ -7,6 +7,7 @@ package frc.robot;
  * floating around.
  */
 public class RobotMap {
+	// TODO: Finalize IDs
 	// Drive train CAN IDs [IDs need to be updated]
 	public static int rightFrontDrive = 4;
 	public static int rightRearDrive = 7;
@@ -18,6 +19,8 @@ public class RobotMap {
 	public static int cargoShoot = 2;
 
 	// Arm CAN IDs [IDs need to be updated]
-	public static int arm = 3;
-
+	public static int armUpInputChannel = 8;
+	public static int armDownInputChannel = 9;
+	public static int armMotorAPort = 10;
+	public static int armMotorBPort = 11;
 	}

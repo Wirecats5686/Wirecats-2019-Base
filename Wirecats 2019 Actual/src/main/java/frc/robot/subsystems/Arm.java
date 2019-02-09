@@ -19,13 +19,12 @@ public class Arm extends Subsystem{
 
     public Arm(){
         super("Arm");
-        //numbers are placeholders and will be replaced with proper port numbers
-        //see if we can use the robot map
-		arm_motor_a = new Talon(6);
-		arm_motor_b = new Talon(7);
+		// TODO: Determine proper ports and digital channels
+		arm_motor_a = new Talon(RobotMap.armMotorAPort);
+		arm_motor_b = new Talon(RobotMap.armMotorBPort);
 		
-		down = new DigitalInput(9);
-		up = new DigitalInput(1);
+		down = new DigitalInput(RobotMap.armDownInputChannel);
+		up = new DigitalInput(RobotMap.armUpInputChannel);
 
     }
 
