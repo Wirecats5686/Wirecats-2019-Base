@@ -7,8 +7,12 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
  */
 public class LowShootTrigger extends Trigger {
     
-    // @return true if trigger is activated, else false
-    // TODO: Determine and experiment with return values of getRawAxis()
+    /**
+     * Determine if trigger is being pressed
+     * getRawAxis(3) represents right trigger on gamepad
+     * @return true if trigger is activated, else false
+     * TODO: Determine and experiment with return values of getRawAxis()
+     */
     public boolean get() {
         return Robot.oi.getGamepad().getRawAxis(3) != 0;
     }
