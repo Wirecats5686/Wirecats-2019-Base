@@ -67,9 +67,9 @@ public class OI {
 		gamepad = new Joystick(2);
 		
 		// set up buttons here	
-		hatchGrab = new JoystickButton(gamepad, GamepadMap.aButton);
-		hatchRelease = new JoystickButton(gamepad, GamepadMap.rightShoulder);
-		cargoIntake = new JoystickButton(gamepad, GamepadMap.yButton);
+		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
+		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
+		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
 
 		// Right trigger button = high cargo shoot (Rocket cargo)
 		highCargoShoot = new HighShootTrigger(); 

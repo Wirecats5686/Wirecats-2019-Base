@@ -1,6 +1,6 @@
 package frc.robot;
 
-public class GamepadMap {
+public class GamepadButtonMap {
     //Numbers for the buttons on Logitech Controller aka "gamepad"
     public static int aButton = 1;
     public static int bButton = 2;

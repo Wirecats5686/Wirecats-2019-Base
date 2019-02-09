@@ -1,4 +1,4 @@
-//this is where the subsystem code for the arm will go
+//this is where the subsystem code for the climber will go
 package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
