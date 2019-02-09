@@ -1,4 +1,3 @@
-//this is where the subsystem code for the climber will go
 package frc.robot.subsystems;
 
 import frc.robot.commands.Climb;

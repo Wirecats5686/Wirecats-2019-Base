@@ -66,7 +66,7 @@ public class OI {
 		// init joysticks
 		left = new Joystick(0);
 		right = new Joystick(1);
-		gamepad = new Joystick(2);
+		gamepad = new Joystick(2); // USB Logitech controller
 		
 		// set up buttons here	
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
@@ -92,6 +92,7 @@ public class OI {
 		slowDrive = new JoystickButton(left, 3);
 		slowDrive2 = new JoystickButton(right, 3);
 
+		// Activate commands based on interaction with mapped button/trigger/POV
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 		hatchRelease.whenPressed(new HatchRelease(0.5));
 		cargoIntake.whileHeld(new CargoIntake());

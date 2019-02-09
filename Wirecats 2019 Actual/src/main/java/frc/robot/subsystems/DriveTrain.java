@@ -10,9 +10,9 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/**
- * The robot's drivetrain
- */
+/*
+* Robot Drive Train for driving the robot
+*/
 public class DriveTrain extends Subsystem {
 	private static DifferentialDrive drive;
 	
