@@ -72,6 +72,7 @@ public class OI {
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
 
 		// Right trigger button = high cargo shoot (Rocket cargo)
+		// Note that button mapping for triggers will occur in corresponding trigger class
 		highCargoShoot = new HighShootTrigger(); 
 
 		// Left trigger button -> low cargo shoot (Cargo Ship cargo)

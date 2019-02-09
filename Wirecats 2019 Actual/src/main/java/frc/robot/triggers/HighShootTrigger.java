@@ -1,7 +1,7 @@
 package frc.robot.triggers;
 
 import frc.robot.Robot;
-import frc.robot.GamepadTriggerMap;
+import frc.robot.GamepadTriggerPOVMap;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
@@ -16,6 +16,6 @@ public class HighShootTrigger extends Trigger {
      * TODO: Determine and experiment with return values of getRawAxis()
      */
     public boolean get() {
-        return Robot.oi.getGamepad().getRawAxis(GamepadTriggerMap.leftTrigger) != 0;
+        return Robot.oi.getGamepad().getRawAxis(GamepadTriggerPOVMap.leftTrigger) != 0;
     }
 }
