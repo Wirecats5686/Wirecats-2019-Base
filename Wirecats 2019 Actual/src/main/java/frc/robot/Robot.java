@@ -71,6 +71,7 @@ public class Robot extends TimedRobot {
     
     // set up for switching between 2 cameras
     // CameraServer.getInstance().startAutomaticCapture();
+    //TODO check videosink class as possible method of switching between cameras, (see: https://wpilib.screenstepslive.com/s/currentCS/m/vision/l/708159-using-multiple-cameras)
     camera1 = CameraServer.getInstance().startAutomaticCapture(0);
     camera2 = CameraServer.getInstance().startAutomaticCapture(1);
   }
@@ -126,7 +127,7 @@ public class Robot extends TimedRobot {
 		} */
 
 		// schedule the autonomous command (example)
-		if (autonomousCommand != null) autonomousCommand.start();
+		//if (autonomousCommand != null) autonomousCommand.start();
   }
 
   /**
@@ -138,7 +139,7 @@ public class Robot extends TimedRobot {
   }
 
   public void teleopInit() {
-		if (autonomousCommand != null) autonomousCommand.cancel();
+		//if (autonomousCommand != null) autonomousCommand.cancel();
 		// This makes sure that the autonomous stops running when
 		// teleop starts running. If you want the autonomous to 
 		// continue until interrupted by another command, remove

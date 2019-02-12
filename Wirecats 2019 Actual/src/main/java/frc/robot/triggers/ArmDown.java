@@ -10,6 +10,7 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
 public class ArmDown extends Trigger {
     
     public boolean get() {
-        return Robot.oi.getGamepad().getPOV() == GamepadTriggerPOVMap.povDown;
+        return true;
+        // return Robot.oi.getGamepad().getPOV() == GamepadTriggerPOVMap.povDown;
     }
 }

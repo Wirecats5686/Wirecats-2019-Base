@@ -16,6 +16,7 @@ public class HighShootTrigger extends Trigger {
      * TODO: Determine and experiment with return values of getRawAxis(); should be between -1 and 1
      */
     public boolean get() {
-        return Robot.oi.getGamepad().getRawAxis(GamepadTriggerPOVMap.leftTrigger) != 0;
+        return true;
+        // return Robot.oi.getGamepad().getRawAxis(GamepadTriggerPOVMap.leftTrigger) != 0;
     }
 }

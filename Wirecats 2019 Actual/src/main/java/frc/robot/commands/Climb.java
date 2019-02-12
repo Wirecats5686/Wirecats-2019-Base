@@ -14,6 +14,7 @@ public class Climb extends Command {
     }
 
     // TODO: Implement climb execution based on mechanical design
+    // Use 3 cylinders, 2 solonoids (front and back) similar to hatch
     protected void execute() {
 
     }
