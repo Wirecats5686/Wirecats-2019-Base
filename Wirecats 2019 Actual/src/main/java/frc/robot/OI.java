@@ -42,6 +42,8 @@ public class OI {
 	JoystickButton hatchGrab;
 	JoystickButton hatchRelease;
 	JoystickButton cargoIntake;
+	JoystickButton frontCamera;
+	JoystickButton backCamera;
 
 	// For "shooting" cargo into Cargo Ship
 	Trigger lowCargoShoot;
