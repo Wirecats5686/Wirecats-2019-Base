@@ -31,6 +31,7 @@ public class Robot extends TimedRobot {
   public static Cargo cargo;
   public static UsbCamera camera1;
   public static UsbCamera camera2;
+  public static VideoSink server;
   public static Arm arm;
   public static Climber climber;
 	
@@ -74,6 +75,7 @@ public class Robot extends TimedRobot {
     //TODO check videosink class as possible method of switching between cameras, (see: https://wpilib.screenstepslive.com/s/currentCS/m/vision/l/708159-using-multiple-cameras)
     camera1 = CameraServer.getInstance().startAutomaticCapture(0);
     camera2 = CameraServer.getInstance().startAutomaticCapture(1);
+    server = CameraServer.getInstance().getServer();
   }
 
   	/**
