@@ -19,6 +19,7 @@ public class RobotMap {
 	public static int cargoShoot = 7;
 
 	// Arm CAN IDs [IDs need to be updated]
+	public static int armMotor = 5;
 	public static int armUpInputChannel = 8;
 	public static int armDownInputChannel = 9;
 	public static int armMotorAPort = 10;

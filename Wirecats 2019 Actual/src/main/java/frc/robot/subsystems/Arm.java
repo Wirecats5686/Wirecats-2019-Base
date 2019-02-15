@@ -19,6 +19,7 @@ public class Arm extends Subsystem{
     public Arm(){
         super("Arm");
 		// TODO: Determine proper ports and digital channels
+		// one motor for arm
 		arm_motor_a = new Talon(RobotMap.armMotorAPort);
 		arm_motor_b = new Talon(RobotMap.armMotorBPort);
 		
