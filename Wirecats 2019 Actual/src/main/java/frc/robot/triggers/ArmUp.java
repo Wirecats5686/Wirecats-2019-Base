@@ -1,7 +1,7 @@
 package frc.robot.triggers;
 
-import frc.robot.Robot;
 import frc.robot.GamepadTriggerPOVMap;
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
@@ -9,8 +9,13 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
  */
 public class ArmUp extends Trigger {
     
+    private Joystick gamepad;
+
+    public ArmUp(Joystick joystick) {
+        gamepad = joystick;
+    }
+
     public boolean get() {
-        return true;
-        //return Robot.oi.getGamepad().getPOV() == GamepadTriggerPOVMap.povUp;
+        return gamepad.getPOV() == GamepadTriggerPOVMap.povUp;
     }
 }

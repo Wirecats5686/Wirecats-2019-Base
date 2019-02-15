@@ -12,20 +12,20 @@ import edu.wpi.first.wpilibj.command.Subsystem;
 public class RobotSolenoid extends Subsystem {
 	private static SolenoidBase solenoid;
 
-	public RobotSolenoid(String type){
-        super("Solenoid");
+    /**
+     * Constructor for a double solenoid with values for the forward and reverse channels
+     */
+    public RobotSolenoid (int forwardChannel, int reverseChannel){
+        super("Double Solenoid");
+        solenoid = new DoubleSolenoid(forwardChannel, reverseChannel);
+    }
 
-        /* Check what type of solenoid we're creating:  
-         *   If value of type is "single", create a single solenoid object 
-         *   Otherwise we default to creating a double solenoid object
-         */
-        if ("single".equalsIgnoreCase(type)){
-            solenoid = new Solenoid(0);
-        }
-        else {
-            solenoid = new DoubleSolenoid(5, 4);
-        }
-
+    /**
+     * Constructor for a single solenoid with values for the forward and reverse channels
+     */
+    public RobotSolenoid (int channel){
+        super("Single Solenoid");
+        solenoid = new Solenoid(channel);
     }
     
     /**

@@ -53,7 +53,7 @@ public class Robot extends TimedRobot {
 		compressor = new Compressor(0);
 		compressor.start ();
     
-    hatchSolenoid = new RobotSolenoid("double");
+    hatchSolenoid = new RobotSolenoid(RobotMap.hatchForwardChannel, RobotMap.hatchReverseChannel);
     
     cargo = new Cargo();
     climber = new Climber();

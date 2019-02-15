@@ -23,4 +23,9 @@ public class RobotMap {
 	public static int armDownInputChannel = 9;
 	public static int armMotorAPort = 10;
 	public static int armMotorBPort = 11;
+
+	// Solenoid channels
+	public static int hatchForwardChannel = 5;
+	public static int hatchReverseChannel = 4;
+	//Add values for climber solenoids
 	}

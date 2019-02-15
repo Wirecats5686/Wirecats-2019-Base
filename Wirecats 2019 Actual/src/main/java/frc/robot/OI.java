@@ -81,13 +81,13 @@ public class OI {
 
 		// Right trigger button = high cargo shoot (Rocket cargo)
 		// Note that button mapping for triggers will occur in corresponding trigger class
-		highCargoShoot = new HighShootTrigger(); 
+		highCargoShoot = new HighShootTrigger(gamepad); 
 
 		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
-		lowCargoShoot = new LowShootTrigger();
+		lowCargoShoot = new LowShootTrigger(gamepad);
 
-		armUp = new ArmUp();
-		armDown = new ArmDown();
+		armUp = new ArmUp(gamepad);
+		armDown = new ArmDown(gamepad);
 
 		tankDrive = new JoystickButton(left, 9);
 		tankDrive2 = new JoystickButton(right, 9);
