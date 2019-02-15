@@ -42,8 +42,8 @@ public class OI {
 	JoystickButton hatchGrab;
 	JoystickButton hatchRelease;
 	JoystickButton cargoIntake;
-	JoystickButton frontCamera;
-	JoystickButton backCamera;
+	JoystickButton camera;
+
 
 	// For "shooting" cargo into Cargo Ship
 	Trigger lowCargoShoot;
@@ -76,8 +76,8 @@ public class OI {
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
 		climb = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
 		//TODO check with hannah on button specifics
-		frontCamera = new JoystickButton(gamepad, GamepadButtonMap.bButton);
-		backCamera = new JoystickButton(gamepad, GamepadButtonMap. xButton);
+		camera = new JoystickButton(gamepad, GamepadButtonMap.xButton);
+	
 
 		// Right trigger button = high cargo shoot (Rocket cargo)
 		// Note that button mapping for triggers will occur in corresponding trigger class
@@ -104,9 +104,9 @@ public class OI {
 		lowCargoShoot.whileActive(new CargoShoot(false));
 		highCargoShoot.whileActive(new CargoShoot(true));
 		
+		Camera cameraCommand = new Camera();
+		camera.whenPressed(cameraCommand);
 		
-		backCamera.whenPressed(new BackCamera());
-		frontCamera.whenPressed(new FrontCamera());
 
 		armUp.whenActive(new RunArm(true));
 		armDown.whenActive(new RunArm(false));

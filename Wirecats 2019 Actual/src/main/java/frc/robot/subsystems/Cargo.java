@@ -13,10 +13,10 @@ public class Cargo extends Subsystem{
     private WPI_TalonSRX shoot;
     
     // TODO: Determine actual values and if any other values are needed
-    private static final double INTAKE_SPEED = 1.0;
+    private static final double INTAKE_SPEED = 0.3;
     private static final double HOLD_SPEED = 0.25;
-    private static final double ROCKET_SHOOT = 0.5;
-    private static final double SHIP_SHOOT = 1.0;
+    private static final double ROCKET_SHOOT = 0.1;
+    private static final double SHIP_SHOOT = 0.5;
 
     public Cargo(){
         super("Cargo");

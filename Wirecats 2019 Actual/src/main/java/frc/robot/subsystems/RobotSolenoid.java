@@ -23,7 +23,7 @@ public class RobotSolenoid extends Subsystem {
             solenoid = new Solenoid(0);
         }
         else {
-            solenoid = new DoubleSolenoid(0, 1);
+            solenoid = new DoubleSolenoid(5, 4);
         }
 
     }

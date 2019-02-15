@@ -37,7 +37,7 @@ public class Arm extends Subsystem{
 		}else if(getDownSwitch() && speed > 0){
 			setBoth(0);
 		}else{
-			speed *= 0.3;
+			speed *= 0.1;
 			
 			setBoth(speed);
 		}

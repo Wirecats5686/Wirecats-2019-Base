@@ -16,6 +16,7 @@ import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.cscore.VideoSink;
 
 /**
  * The VM is configured to automatically run this class, and to call the
@@ -76,7 +77,9 @@ public class Robot extends TimedRobot {
     camera1 = CameraServer.getInstance().startAutomaticCapture(0);
     camera2 = CameraServer.getInstance().startAutomaticCapture(1);
     server = CameraServer.getInstance().getServer();
+    server.setSource(camera2);
   }
+
 
   	/**
 	 * This function is called once each time the robot enters Disabled mode.
