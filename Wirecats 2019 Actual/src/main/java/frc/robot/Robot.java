@@ -28,7 +28,7 @@ import edu.wpi.cscore.VideoSink;
 public class Robot extends TimedRobot {
 	public static DriveTrain drivetrain;
   public static Compressor compressor;
-  public static RobotSolenoid hatchSolenoid;
+  public static HatchSolenoid hatchSolenoid;
   public static Cargo cargo;
   public static UsbCamera camera1;
   public static UsbCamera camera2;
@@ -52,7 +52,7 @@ public class Robot extends TimedRobot {
 		compressor = new Compressor(0);
 		compressor.start ();
     
-    hatchSolenoid = new RobotSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
+    hatchSolenoid = new HatchSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
     
     cargo = new Cargo();
     climber = new Climber();

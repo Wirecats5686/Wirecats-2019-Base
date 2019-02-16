@@ -12,7 +12,7 @@ public class HatchGrab extends Command {
     }
 
     protected void execute() {
-        Robot.hatchSolenoid.SolenoidExtend();
+        Robot.hatchSolenoid.solenoidExtend();
     }
 	protected boolean isFinished() {
 		return isTimedOut();

@@ -12,7 +12,7 @@ public class HatchRelease extends Command {
     }
 
     protected void execute() {
-        Robot.hatchSolenoid.SolenoidRetract();
+        Robot.hatchSolenoid.solenoidRetract();
     }
 	protected boolean isFinished() {
 		return isTimedOut();
