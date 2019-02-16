@@ -34,7 +34,8 @@ public class Robot extends TimedRobot {
   public static UsbCamera camera2;
   public static VideoSink server;
   public static Arm arm;
-  public static Climber climber;
+  public static FrontClimber frontClimber;
+  public static BackClimber backClimber;
 	public static OI oi;
 	
 	Command autonomousCommand;
@@ -55,7 +56,8 @@ public class Robot extends TimedRobot {
     hatchSolenoid = new HatchSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
     
     cargo = new Cargo();
-    climber = new Climber();
+    frontClimber = new FrontClimber();
+    backClimber = new BackClimber();
     arm = new Arm();
 
 		//compressor.setClosedLoopControl(true);

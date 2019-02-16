@@ -114,8 +114,10 @@ public class OI {
 		armDown.whileActive(new RunArm(false));
 
 		// ADD Comments
-		Climb climbCommand = new Climb();
-		climb.whenPressed(climbCommand);
+		climb.whenPressed(new BackClimbDown());
+		climb.whenPressed(new BackClimbUp());
+		climb.whenPressed(new FrontClimbDown());
+		climb.whenPressed(new FrontClimbUp());
 	}
 	
 	public Joystick getLeft(){

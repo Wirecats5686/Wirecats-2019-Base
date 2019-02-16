@@ -3,19 +3,19 @@ package frc.robot.commands;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
-//TODO: will need separate climb commands for up/down and front/back climbers
-public class Climb extends Command {
+public class FrontClimbUp extends Command {
 
-    public Climb() {
+    public FrontClimbUp() {
         super(0.25);
-        requires(Robot.climber);
+        requires(Robot.frontClimber);
+        setInterruptible(true);
     }
 
     /**
      * 
      */
     protected void execute() {
-        Robot.climber.putFrontDown();
+        Robot.frontClimber.liftFrontUp();
     }
 
     /**
@@ -26,6 +26,11 @@ public class Climb extends Command {
     }
 
     protected void end() {
-        Robot.climber.stop();
+        Robot.frontClimber.stop();
+    }
+
+    // subsystems is scheduled to run
+    protected void interrupted() {
+    	end();
     }
 }
