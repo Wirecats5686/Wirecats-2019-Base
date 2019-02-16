@@ -21,8 +21,8 @@ public class RobotMap {
 	public static int armId = 5;
 
 	// Port numbers for Hatch Solenoid channels
-	public static int hatchForward = 5;
-	public static int hatchReverse = 4;
+	public static int hatchForward = 7;
+	public static int hatchReverse = 6;
 
 	// Port numbers for climber Solenoid channels
 	// public static int climberBackForward = 3;
