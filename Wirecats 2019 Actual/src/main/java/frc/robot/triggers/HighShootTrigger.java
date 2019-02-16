@@ -9,16 +9,21 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
  */
 public class HighShootTrigger extends Trigger {
 
+    // Gamepad that has the trigger button we're interested in
     private Joystick gamepad;
 
+    /**
+     * Create a HighShootTrigger instance
+     * @param joystick
+     */
     public HighShootTrigger (Joystick joystick) {
         gamepad = joystick;
     }
 
     /**
-     * Determine if trigger is being pressed
-     * getRawAxis(2) represents left trigger on gamepad
-     * @return true if trigger is activated, else false
+     * Determine if left trigger on gamepad is being pressed by getting the value of axis 2
+     * 
+     * @return true if trigger is being pressed (value is not 0)
      */
     public boolean get() {
         return gamepad.getRawAxis(GamepadTriggerPOVMap.leftTrigger) != 0;

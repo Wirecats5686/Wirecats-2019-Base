@@ -63,7 +63,7 @@ public class OI {
 	// For moving arm down
 	Trigger armDown;
 
-	// For activating/deactivating climb mechanism
+	// For activating/deactivating climb mechanisms
 	JoystickButton frontClimbUp;
 	JoystickButton frontClimbDown;
 	JoystickButton backClimbUp;
@@ -75,54 +75,50 @@ public class OI {
 		right = new Joystick(1);
 		gamepad = new Joystick(2);
 		
-		// Set up button 	
+		// Set hatch grab button & command
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
-		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
-		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
-		frontClimbDown = new JoystickButton(right,JoystickButtonMap.button2);
-		frontClimbUp = new JoystickButton(right, JoystickButtonMap.button3);
-		backClimbDown = new JoystickButton(left,JoystickButtonMap.button2);
-		backClimbUp = new JoystickButton(left, JoystickButtonMap.button3);
-		camera = new JoystickButton(gamepad, GamepadButtonMap.xButton);
-	
-
-		/**
-		 * Creating triggers (Arm & Cargo shoot); mapping of triggers
-		 * occurs within Trigger sub-class
-		 */
-
-		// Right trigger button = high cargo shoot (Cargo Ship cargo)
-		highCargoShoot = new HighShootTrigger(gamepad); 
-
-		// Left trigger button -> low cargo shoot (Rocket cargo)
-		lowCargoShoot = new LowShootTrigger(gamepad);
-
-		// Up button -> move arm up
-		armUp = new ArmUp(gamepad);
-
-		// Down button -> move arm down
-		armDown = new ArmDown(gamepad);
-
-		// Activate commands based on interaction with mapped button/trigger/POV
 		hatchGrab.whenPressed(new HatchGrab(0.5));
-		hatchRelease.whenPressed(new HatchRelease(0.5));
-		cargoIntake.whileHeld(new CargoIntake());
-		lowCargoShoot.whileActive(new CargoShoot(false));
-		highCargoShoot.whileActive(new CargoShoot(true));
-		
-		// Switch between cameras when assigned button is pressed
-		Camera cameraCommand = new Camera();
-		camera.whenPressed(cameraCommand);
-		
 
+		// Set hatch release button & command 
+		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
+		hatchRelease.whenPressed(new HatchRelease(0.5));
+
+		// Set up cargo intake button & command
+		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
+		cargoIntake.whileHeld(new CargoIntake());
+
+		// Set up high cargo shoot trigger and command (for Cargo Ship)
+		highCargoShoot = new HighShootTrigger(gamepad); 
+		highCargoShoot.whileActive(new CargoShoot(true));
+
+		// Set up low cargo shoot trigger and command (for Rocket)
+		lowCargoShoot = new LowShootTrigger(gamepad);
+		lowCargoShoot.whileActive(new CargoShoot(false));
+
+		// Set trigger and command for moving arm up
+		armUp = new ArmUp(gamepad);
 		armUp.whileActive(new RunArm(true));
+
+		// Set trigger and command for moving arm down
+		armDown = new ArmDown(gamepad);
 		armDown.whileActive(new RunArm(false));
 
-		// ADD Comments
-		backClimbDown.whenPressed(new BackClimbDown());
-		backClimbUp.whenPressed(new BackClimbUp());
+		// Set up button & command to swtich between cameras
+		camera = new JoystickButton(gamepad, GamepadButtonMap.xButton);
+		Camera cameraCommand = new Camera();
+		camera.whenPressed(cameraCommand);
+
+		// Set up front climb buttons & commands
+		frontClimbDown = new JoystickButton(right,JoystickButtonMap.button2);
+		frontClimbUp = new JoystickButton(right, JoystickButtonMap.button3);
 		frontClimbDown.whenPressed(new FrontClimbDown());
 		frontClimbUp.whenPressed(new FrontClimbUp());
+
+		// Set up back climb buttons & commands
+		backClimbDown = new JoystickButton(left,JoystickButtonMap.button2);
+		backClimbUp = new JoystickButton(left, JoystickButtonMap.button3);
+		backClimbDown.whenPressed(new BackClimbDown());
+		backClimbUp.whenPressed(new BackClimbUp());
 	}
 	
 	public Joystick getLeft(){

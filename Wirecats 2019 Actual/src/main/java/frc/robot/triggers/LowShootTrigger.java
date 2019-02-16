@@ -8,16 +8,21 @@ import edu.wpi.first.wpilibj.buttons.Trigger;
  */
 public class LowShootTrigger extends Trigger {
 
+    // Gamepad that has the trigger button we're interested in
     private Joystick gamepad;
 
+    /**
+     * Create a LowShootTrigger instance
+     * @param joystick
+     */
     public LowShootTrigger (Joystick joystick) {
         gamepad = joystick;
     }
     
     /**
-     * Determine if trigger is being pressed
-     * getRawAxis(3) represents right trigger on gamepad
-     * @return true if trigger is activated, else false
+     * Determine if right trigger on gamepad is being pressed by getting the value of axis 3
+     * 
+     * @return true if trigger is being pressed (value is not 0)
      */
     public boolean get() {
         return gamepad.getRawAxis(GamepadTriggerPOVMap.rightTrigger) != 0;

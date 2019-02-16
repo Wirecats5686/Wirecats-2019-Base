@@ -13,9 +13,7 @@ import edu.wpi.cscore.UsbCamera;
 import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.wpilibj.Compressor;
 import edu.wpi.first.wpilibj.TimedRobot;
-import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
-import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 import edu.wpi.cscore.VideoSink;
 
 /**
@@ -26,20 +24,24 @@ import edu.wpi.cscore.VideoSink;
  * project.
  */
 public class Robot extends TimedRobot {
-	public static DriveTrain drivetrain;
-  public static Compressor compressor;
-  public static HatchSolenoid hatchSolenoid;
+  // Create objects for each subsystem
+  public static Arm arm;
+  public static BackClimber backClimber;
   public static Cargo cargo;
+  public static DriveTrain drivetrain;
+  public static FrontClimber frontClimber;
+  public static HatchSolenoid hatchSolenoid;
+  
+  // Camera objects
   public static UsbCamera backCamera;
   public static UsbCamera frontCamera;
   public static VideoSink server;
-  public static Arm arm;
-  public static FrontClimber frontClimber;
-  public static BackClimber backClimber;
+
+  // Object for Compresser
+  public static Compressor compressor;
+
+  // Object for button/command mapping
 	public static OI oi;
-	
-	Command autonomousCommand;
-	SendableChooser<String> chooser;
 
   /**
    * This function is run when the robot is first started up and should be
@@ -47,37 +49,27 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void robotInit() {
-    // instantiate subsystems
+    // Create and start compressor
+    compressor = new Compressor(0);
+    compressor.start ();
+    
+    // Set up subsystems
 		drivetrain = new DriveTrain();
-		
-		compressor = new Compressor(0);
-		compressor.start ();
-    
     hatchSolenoid = new HatchSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
-    
     cargo = new Cargo();
     frontClimber = new FrontClimber();
     backClimber = new BackClimber();
     arm = new Arm();
-
-		//compressor.setClosedLoopControl(true);
-		//compressor.setClosedLoopControl(false);
-		
-		oi = new OI();
-		
-		// chooser = new SendableChooser();
-		// chooser.addDefault("Default Auto", new ExampleCommand());
-		// chooser.addObject("My Auto", new MyAutoCommand());
-		// SmartDashboard.putData("Auto mode", chooser);
-        
-		//autonomousCommand=new Autonomous();
     
-    // set up for switching between 2 cameras
-    // CameraServer.getInstance().startAutomaticCapture();
-    //TODO check videosink class as possible method of switching between cameras, (see: https://wpilib.screenstepslive.com/s/currentCS/m/vision/l/708159-using-multiple-cameras)
+    // Create button/command mappings
+		oi = new OI();
+    
+    // Create camera and camera server objects
     backCamera = CameraServer.getInstance().startAutomaticCapture(0);
     frontCamera = CameraServer.getInstance().startAutomaticCapture(1);
     server = CameraServer.getInstance().getServer();
+
+    // Display video from front camera to start
     server.setSource(frontCamera);
   }
 
@@ -118,22 +110,7 @@ public class Robot extends TimedRobot {
    */
   @Override
   public void autonomousInit() {
-   //int driveNumber= Ports.autoDriveNumber;
-		//autonomousCommand = (Command) chooser.getSelected();
-
-		/* String autoSelected = SmartDashboard.getString("Auto Selector", "Default");
-		switch(autoSelected) {
-		case "My Auto":
-			autonomousCommand = new MyAutoCommand();
-			break;
-		case "Default Auto":
-		default:
-			autonomousCommand = new ExampleCommand();
-			break;
-		} */
-
-		// schedule the autonomous command (example)
-		//if (autonomousCommand != null) autonomousCommand.start();
+   // Not doing autonomous this year so leaving method empty
   }
 
   /**
@@ -145,11 +122,7 @@ public class Robot extends TimedRobot {
   }
 
   public void teleopInit() {
-		//if (autonomousCommand != null) autonomousCommand.cancel();
-		// This makes sure that the autonomous stops running when
-		// teleop starts running. If you want the autonomous to 
-		// continue until interrupted by another command, remove
-		// this line or comment it out.
+		// Don't need to do anything here
 	}
 
   /**
