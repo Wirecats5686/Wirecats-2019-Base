@@ -12,11 +12,10 @@ public class Cargo extends Subsystem{
     private WPI_TalonSRX intake;
     private WPI_TalonSRX shoot;
     
-    // TODO: Determine actual values and if any other values are needed
-    private static final double INTAKE_SPEED = 0.3;
-    private static final double HOLD_SPEED = 0.25;
-    private static final double ROCKET_SHOOT = 0.1;
-    private static final double SHIP_SHOOT = 0.5;
+    // TODO: Finalize values
+    private static final double INTAKE_SPEED = 0.5;
+    private static final double ROCKET_SHOOT = 0.5;
+    private static final double SHIP_SHOOT = 0.85;
 
     public Cargo(){
         super("Cargo");
@@ -24,6 +23,10 @@ public class Cargo extends Subsystem{
         shoot = new WPI_TalonSRX(RobotMap.cargoShoot);
     }
 
+    /**
+     *  Abstract method that's required in subclass; not being used since 
+	 * we don't need arm to do anything when Robot is first enabled
+     */
     public void initDefaultCommand() {
 		// Nothing needs to be called when we initialize this subsystem
     }
@@ -47,14 +50,6 @@ public class Cargo extends Subsystem{
      */
     public void shootIntoCargoShip(){
         shoot.set(SHIP_SHOOT);
-    }
-    
-    /**
-     * Have robt hold onto Cargo
-     */
-    public void holdCargo() {
-        intake.set(HOLD_SPEED);
-        shoot.set(-HOLD_SPEED);
     }
 
     public void stopIntake(){

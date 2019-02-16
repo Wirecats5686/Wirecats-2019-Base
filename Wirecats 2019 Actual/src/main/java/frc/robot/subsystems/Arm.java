@@ -1,4 +1,3 @@
-//this is where the subsystem code for the arm will go
 package frc.robot.subsystems;
 
 import frc.robot.RobotMap;
@@ -7,25 +6,43 @@ import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
+/**
+ * Subsytem class for Arm mechanism
+ */
 public class Arm extends Subsystem{
+	// Speed controller for arm
 	private WPI_TalonSRX armTalon;
 
+	// Digital inputs (switches) for arm
     private static DigitalInput down;
 	private static DigitalInput up;
 
+	/**
+	 * Create a new Arm instance, setting up talon and digital inputs
+	 */
     public Arm(){
 		super("Arm");
 		armTalon = new WPI_TalonSRX(RobotMap.armId);
 		
+		// Digital inputs commented out for now as don't have yet
 		//down = new DigitalInput(RobotMap.armDownInputChannel);
 		//up = new DigitalInput(RobotMap.armUpInputChannel);
-
     }
 
+	/**
+     *  Abstract method that's required in subclass; not being used since 
+	 * we don't need arm to do anything when Robot is first enabled
+     */
     public void initDefaultCommand() {
         // Don't do anything
 	}
 	
+	/**
+	 * Set speed for arm to fraction of value passed in if arm 
+	 * is not in highest/lowest position
+	 * 
+	 * @param speed
+	 */
     public void set(double speed){
 		/**
 		 * Set speed of arm as long as arm has not activated digital 
@@ -40,8 +57,8 @@ public class Arm extends Subsystem{
 		// 	armTalon.set(speed*0.1);
 		// }
 		
-		// Set arm speed to 1/10th of the passed in speed
-		armTalon.set(speed*0.1);
+		// Set arm speed to 1/4 of the passed in speed
+		armTalon.set(speed*0.25);
 	}
 	
 	/**
@@ -60,8 +77,11 @@ public class Arm extends Subsystem{
 		return up.get();
 	}
 
+	/**
+	 * Set speed of motor to 0, stopping it
+	 */
 	public void stop(){
-		set(0);
+		armTalon.set(0);
 	}
 }
 

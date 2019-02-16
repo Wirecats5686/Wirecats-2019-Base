@@ -21,11 +21,11 @@ public class HighShootTrigger extends Trigger {
     }
 
     /**
-     * Determine if left trigger on gamepad is being pressed by getting the value of axis 2
+     * Determine if left trigger on gamepad is being pressed by getting the value of axis 3
      * 
      * @return true if trigger is being pressed (value is not 0)
      */
     public boolean get() {
-        return gamepad.getRawAxis(GamepadTriggerPOVMap.leftTrigger) != 0;
+        return gamepad.getRawAxis(GamepadTriggerPOVMap.rightTrigger) != 0;
     }
 }

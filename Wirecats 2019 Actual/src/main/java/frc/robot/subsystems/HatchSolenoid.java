@@ -18,8 +18,8 @@ public class HatchSolenoid extends Subsystem {
     }
     
     /**
-     *  Abstract method that's required in subclass but not being used by us;
-     *   currently does nothing
+     *  Abstract method that's required in subclass; not being used since 
+	 * we don't need arm to do anything when Robot is first enabled
      */
     public void initDefaultCommand() {
         // Nothing needs to be called when we initialize this subsystem
