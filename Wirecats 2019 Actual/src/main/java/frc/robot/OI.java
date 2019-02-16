@@ -63,9 +63,11 @@ public class OI {
 	// For moving arm down
 	Trigger armDown;
 
-	// TODO: Confirm gamepad mapping for climber
 	// For activating/deactivating climb mechanism
-	JoystickButton climb;
+	JoystickButton frontClimbUp;
+	JoystickButton frontClimbDown;
+	JoystickButton backClimbUp;
+	JoystickButton backClimbDown;
 	
 	public OI(){
 		// Create objects for the two joysticks and Logitech controller
@@ -77,7 +79,10 @@ public class OI {
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
 		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
-		climb = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
+		frontClimbDown = new JoystickButton(right,JoystickButtonMap.button2);
+		frontClimbUp = new JoystickButton(right, JoystickButtonMap.button3);
+		backClimbDown = new JoystickButton(left,JoystickButtonMap.button2);
+		backClimbUp = new JoystickButton(left, JoystickButtonMap.button3);
 		camera = new JoystickButton(gamepad, GamepadButtonMap.xButton);
 	
 
@@ -114,10 +119,10 @@ public class OI {
 		armDown.whileActive(new RunArm(false));
 
 		// ADD Comments
-		climb.whenPressed(new BackClimbDown());
-		climb.whenPressed(new BackClimbUp());
-		climb.whenPressed(new FrontClimbDown());
-		climb.whenPressed(new FrontClimbUp());
+		backClimbDown.whenPressed(new BackClimbDown());
+		backClimbUp.whenPressed(new BackClimbUp());
+		frontClimbDown.whenPressed(new FrontClimbDown());
+		frontClimbUp.whenPressed(new FrontClimbUp());
 	}
 	
 	public Joystick getLeft(){
