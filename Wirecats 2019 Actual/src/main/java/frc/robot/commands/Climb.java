@@ -4,18 +4,38 @@ import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
 public class Climb extends Command {
+    private boolean isUp;
+    private boolean isComplete;
 
     public Climb() {
         requires(Robot.climber);
     }
 
-    protected boolean isFinished() {
-        return false;
+    /**
+     * 
+     */
+    protected void execute() {
+        if (isUp){
+            Robot.climber.putFrontDown();;
+            isUp = false;
+        }
+        else {
+            Robot.climber.liftFrontUp();
+            isUp = true;
+        }
+
+        isComplete = true;
     }
 
-    // TODO: Implement climb execution based on mechanical design
-    // Use 3 cylinders, 2 solonoids (front and back) similar to hatch
-    protected void execute() {
+    /**
+     * 
+     */
+    protected boolean isFinished() {
+        return isComplete;
+    }
 
+    protected void end() {
+        Robot.climber.stop();
+        isComplete = false;
     }
 }

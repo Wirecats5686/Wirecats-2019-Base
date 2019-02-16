@@ -34,68 +34,69 @@ public class OI {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	
-	// defining actions that will be commnaded by joysticks
+	// Objects for Logitech joysticks & controller
 	Joystick left;
 	Joystick right;
 	Joystick gamepad;
 	
+	// For grabbing hatch panel
 	JoystickButton hatchGrab;
+
+	// For releasing hatch panel
 	JoystickButton hatchRelease;
+
+	// For intaking cargo into the robot
 	JoystickButton cargoIntake;
+
+	// For switching between cameras
 	JoystickButton camera;
 
-
-	// For "shooting" cargo into Cargo Ship
+	// For shooting cargo into Cargo Ship
 	Trigger lowCargoShoot;
-	// For "shooting" cargo into Rocket
+
+	// For shooting cargo into Rocket
 	Trigger highCargoShoot;
 
+	// For moving arm up
 	Trigger armUp;
+
+	// For moving arm down
 	Trigger armDown;
 
-	JoystickButton tankDrive;
-	JoystickButton tankDrive2;
-	JoystickButton tankDrive3;
-	JoystickButton tankDrive4;
-	
-	JoystickButton slowDrive;
-	JoystickButton slowDrive2;
-
 	// TODO: Confirm gamepad mapping for climber
+	// For activating/deactivating climb mechanism
 	JoystickButton climb;
 	
 	public OI(){
-		// init joysticks
+		// Create objects for the two joysticks and Logitech controller
 		left = new Joystick(0);
 		right = new Joystick(1);
-		gamepad = new Joystick(2); // USB Logitech controller
+		gamepad = new Joystick(2);
 		
-		// set up buttons here	
+		// Set up button 	
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
 		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
 		climb = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
-		//TODO check with hannah on button specifics
 		camera = new JoystickButton(gamepad, GamepadButtonMap.xButton);
 	
 
-		// Right trigger button = high cargo shoot (Rocket cargo)
-		// Note that button mapping for triggers will occur in corresponding trigger class
+		/**
+		 * Creating triggers (Arm & Cargo shoot); mapping of triggers
+		 * occurs within Trigger sub-class
+		 */
+
+		// Right trigger button = high cargo shoot (Cargo Ship cargo)
 		highCargoShoot = new HighShootTrigger(gamepad); 
 
-		// Left trigger button -> low cargo shoot (Cargo Ship cargo)
+		// Left trigger button -> low cargo shoot (Rocket cargo)
 		lowCargoShoot = new LowShootTrigger(gamepad);
 
+		// Up button -> move arm up
 		armUp = new ArmUp(gamepad);
-		armDown = new ArmDown(gamepad);
 
-		tankDrive = new JoystickButton(left, 9);
-		tankDrive2 = new JoystickButton(right, 9);
-		tankDrive3 = new JoystickButton(left, 4);
-		tankDrive4 = new JoystickButton(right, 4);
-		
-		slowDrive = new JoystickButton(left, 3);
-		slowDrive2 = new JoystickButton(right, 3);
+		// Down button -> move arm down
+		armDown = new ArmDown(gamepad);
 
 		// Activate commands based on interaction with mapped button/trigger/POV
 		hatchGrab.whenPressed(new HatchGrab(0.5));
@@ -104,22 +105,17 @@ public class OI {
 		lowCargoShoot.whileActive(new CargoShoot(false));
 		highCargoShoot.whileActive(new CargoShoot(true));
 		
+		// Switch between cameras when assigned button is pressed
 		Camera cameraCommand = new Camera();
 		camera.whenPressed(cameraCommand);
 		
 
-		armUp.whenActive(new RunArm(true));
-		armDown.whenActive(new RunArm(false));
+		armUp.whileActive(new RunArm(true));
+		armDown.whileActive(new RunArm(false));
 
-		climb.whileHeld(new Climb());
-
-		tankDrive.whenPressed(new TankDrive());
-		tankDrive2.whenPressed(new TankDrive());
-		tankDrive3.whenPressed(new TankDrive());
-		tankDrive4.whenPressed(new TankDrive());
-		
-		slowDrive.whenPressed(new SlowDrive());
-		slowDrive2.whenPressed(new SlowDrive());
+		// ADD Comments
+		Climb climbCommand = new Climb();
+		climb.whenPressed(climbCommand);
 	}
 	
 	public Joystick getLeft(){

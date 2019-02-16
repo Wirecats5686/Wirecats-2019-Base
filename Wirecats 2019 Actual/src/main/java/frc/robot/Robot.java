@@ -35,7 +35,6 @@ public class Robot extends TimedRobot {
   public static VideoSink server;
   public static Arm arm;
   public static Climber climber;
-	
 	public static OI oi;
 	
 	Command autonomousCommand;
@@ -53,7 +52,7 @@ public class Robot extends TimedRobot {
 		compressor = new Compressor(0);
 		compressor.start ();
     
-    hatchSolenoid = new RobotSolenoid(RobotMap.hatchForwardChannel, RobotMap.hatchReverseChannel);
+    hatchSolenoid = new RobotSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
     
     cargo = new Cargo();
     climber = new Climber();

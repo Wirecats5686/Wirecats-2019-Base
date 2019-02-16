@@ -4,57 +4,61 @@ package frc.robot.subsystems;
 import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DigitalInput;
-import edu.wpi.first.wpilibj.Talon;
 import edu.wpi.first.wpilibj.command.Subsystem;
 import frc.robot.commands.RunArm;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 public class Arm extends Subsystem{
+	private WPI_TalonSRX armTalon;
+
     private static DigitalInput down;
 	private static DigitalInput up;
-	
-	private static Talon arm_motor_a;
-	private static Talon arm_motor_b;
 
     public Arm(){
-        super("Arm");
-		// TODO: Determine proper ports and digital channels
-		// one motor for arm
-		arm_motor_a = new Talon(RobotMap.armMotorAPort);
-		arm_motor_b = new Talon(RobotMap.armMotorBPort);
+		super("Arm");
+		armTalon = new WPI_TalonSRX(RobotMap.armId);
 		
-		down = new DigitalInput(RobotMap.armDownInputChannel);
-		up = new DigitalInput(RobotMap.armUpInputChannel);
+		//down = new DigitalInput(RobotMap.armDownInputChannel);
+		//up = new DigitalInput(RobotMap.armUpInputChannel);
 
     }
 
     public void initDefaultCommand() {
-        setDefaultCommand(new RunArm(true));
+        // Don't do anything
 	}
 	
     public void set(double speed){
-		if(getUpSwitch() && speed < 0){
-			setBoth(0);
-		}else if(getDownSwitch() && speed > 0){
-			setBoth(0);
-		}else{
-			speed *= 0.1;
-			
-			setBoth(speed);
-		}
-	}
+		/**
+		 * Set speed of arm as long as arm has not activated digital 
+		 * input in direction its trying to go
+		 * -->Commented out until have digital inputs
+		 */
+		// if(isArmDown() && speed > 0){
+		// 	armTalon.set(0);
+		// }else if(isArmUp() && speed < 0){
+		// 	armTalon.set(0);
+		// }else{		
+		// 	armTalon.set(speed*0.1);
+		// }
 		
-	private void setBoth(double speed){
-		arm_motor_a.set(speed);
-		arm_motor_b.set(speed);
+		// Set arm speed to 1/10th of the passed in speed
+		armTalon.set(speed*0.1);
 	}
 	
-	public boolean getDownSwitch(){
-		return !down.get();
+	/**
+	 * Checks if arm is currently as far down as it can go
+	 * @return true if bottom switch is active
+	 */
+	public boolean isArmDown(){
+		return down.get();
 	}
 	
-	public boolean getUpSwitch(){
-		return !up.get();
+	/**
+	 * Checks if arm is currently as far up as it can go
+	 * @return true if top switch is active
+	 */
+	public boolean isArmUp(){
+		return up.get();
 	}
 
 	public void stop(){

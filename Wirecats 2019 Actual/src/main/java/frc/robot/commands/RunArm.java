@@ -11,6 +11,8 @@ public class RunArm extends Command {
     private boolean goingUp;
 
     public RunArm(boolean goingUp) {
+        // setting timeout to prevent continued movement
+        super(0.25);
         this.goingUp = goingUp;
         requires(Robot.arm);
     }
@@ -23,22 +25,24 @@ public class RunArm extends Command {
         /*Check to see if the arm should go up or down; 
         arm will be set to 1 if we are otherwise will be set to -1 (going down)*/
         if (goingUp){
-            Robot.arm.set(1);
+            Robot.arm.set(-1);
         }
         else {
-            Robot.arm.set(-1);
+            Robot.arm.set(1);
         }
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
         // When arm is being raised, return whether we've hit the "upSwitch"
-        if (goingUp){
-            return Robot.arm.getUpSwitch();
-        }
+        // if (goingUp){
+        //     return Robot.arm.isArmUp();
+        // }
 
         // Otherwise, return whether we've hit the "downSwitch"
-        return Robot.arm.getDownSwitch();
+       // return Robot.arm.isArmDown();
+
+        return isTimedOut();
     }
 
     // Called once after isFinished returns true

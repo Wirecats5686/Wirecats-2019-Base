@@ -5,7 +5,7 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Trigger;
 
 /**
- * Maps trigger to POV of gamepad and determines whether down arrow on POV pressed
+ * Maps trigger to POV of gamepad and determines whether down arrow on POV is pressed
  */
 public class ArmDown extends Trigger {
     

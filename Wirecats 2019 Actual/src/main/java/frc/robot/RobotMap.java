@@ -1,32 +1,32 @@
 package frc.robot;
 
 /**
- * The RobotMap is a mapping from the ports sensors and actuators are wired into
- * to a variable name. This provides flexibility changing wiring, makes checking
+ * The RobotMap is a mapping of the ports and CAN IDs to a variable;
+ * This provides flexibility changing wiring, makes checking
  * the wiring easier and significantly reduces the number of magic numbers
  * floating around.
  */
 public class RobotMap {
-	// TODO: Finalize IDs
-	// Drive train CAN IDs [IDs need to be updated]
+	// Drive train CAN IDs
 	public static int rightFrontDrive = 2;
 	public static int rightRearDrive = 1;
 	public static int leftFrontDrive = 3;
 	public static int leftRearDrive = 4;
     
-	// Cargo CAN IDs [IDs need to be updated]
+	// Cargo CAN IDs
 	public static int cargoIntake = 6;
 	public static int cargoShoot = 7;
 
-	// Arm CAN IDs [IDs need to be updated]
-	public static int armMotor = 5;
-	public static int armUpInputChannel = 8;
-	public static int armDownInputChannel = 9;
-	public static int armMotorAPort = 10;
-	public static int armMotorBPort = 11;
+	// Arm CAN ID
+	public static int armId = 5;
 
-	// Solenoid channels
-	public static int hatchForwardChannel = 5;
-	public static int hatchReverseChannel = 4;
-	//Add values for climber solenoids
+	// Port numbers for Hatch Solenoid channels
+	public static int hatchForward = 5;
+	public static int hatchReverse = 4;
+
+	// Port numbers for climber Solenoid channels
+	// public static int climberBackForward = 3;
+	// public static int climberBackReverse = 2;
+	public static int climberFrontForward = 1;
+	public static int climberFrontReverse = 0;
 	}
