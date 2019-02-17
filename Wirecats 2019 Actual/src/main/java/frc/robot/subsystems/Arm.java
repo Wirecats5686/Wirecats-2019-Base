@@ -4,12 +4,15 @@ import frc.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.command.Subsystem;
+
+import com.ctre.phoenix.motorcontrol.NeutralMode;
 import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 
 /**
  * Subsytem class for Arm mechanism
  */
 public class Arm extends Subsystem{
+	
 	// Speed controller for arm
 	private WPI_TalonSRX armTalon;
 
@@ -23,6 +26,7 @@ public class Arm extends Subsystem{
     public Arm(){
 		super("Arm");
 		armTalon = new WPI_TalonSRX(RobotMap.armId);
+		armTalon.setNeutralMode(NeutralMode.Brake);
 		
 		// Digital inputs commented out for now as don't have yet
 		//down = new DigitalInput(RobotMap.armDownInputChannel);

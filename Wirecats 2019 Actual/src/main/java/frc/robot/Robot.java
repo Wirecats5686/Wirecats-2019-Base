@@ -24,13 +24,16 @@ import edu.wpi.cscore.VideoSink;
  * project.
  */
 public class Robot extends TimedRobot {
+  // Timeout for solenoids to prevent them from being on constantly
+  public static final double SOLENOID_TIMEOUT = 0.25;
+  
   // Create objects for each subsystem
   public static Arm arm;
   public static BackClimber backClimber;
   public static Cargo cargo;
   public static DriveTrain drivetrain;
   public static FrontClimber frontClimber;
-  public static HatchSolenoid hatchSolenoid;
+  public static Hatch hatch;
   
   // Camera objects
   public static UsbCamera backCamera;
@@ -55,7 +58,7 @@ public class Robot extends TimedRobot {
     
     // Set up subsystems
 		drivetrain = new DriveTrain();
-    hatchSolenoid = new HatchSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
+    hatch = new Hatch();
     cargo = new Cargo();
     frontClimber = new FrontClimber();
     backClimber = new BackClimber();

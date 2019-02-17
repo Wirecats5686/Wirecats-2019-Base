@@ -16,7 +16,7 @@ public class Cargo extends Subsystem{
     private static final double INTAKE_SPEED = 0.5;
     private static final double ROCKET_SHOOT = 0.5;
     private static final double SHIP_SHOOT = 0.85;
-    private static final double SPIT_SPEED = -0.5;
+    private static final double SPIT_INTAKE = -0.5;
 
     public Cargo(){
         super("Cargo");
@@ -56,8 +56,8 @@ public class Cargo extends Subsystem{
     /**
      * Have robot either re-intake cargo from top or spit it out
      */
-    public void spitCargo(){
-        shoot.set(SPIT_SPEED);
+    public void spitIntakeCargo(){
+        shoot.set(SPIT_INTAKE);
     }
 
     /**

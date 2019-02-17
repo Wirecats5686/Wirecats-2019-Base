@@ -80,11 +80,11 @@ public class OI {
 		
 		// Set hatch grab button & command
 		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
-		hatchGrab.whenPressed(new HatchGrab(0.5));
+		hatchGrab.whenPressed(new HatchGrab());
 
 		// Set hatch release button & command 
 		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
-		hatchRelease.whenPressed(new HatchRelease(0.5));
+		hatchRelease.whenPressed(new HatchRelease());
 
 		// Set up cargo intake button & command
 		cargoIntake = new JoystickButton(gamepad, GamepadButtonMap.yButton);
@@ -100,7 +100,7 @@ public class OI {
 
 		// Set up cargo spit button and command
 		cargoSpit = new JoystickButton(gamepad, GamepadButtonMap.aButton);
-		cargoSpit.whileHeld(new CargoSpit());
+		cargoSpit.whileHeld(new CargoSpitIntake());
 
 		// Set trigger and command for moving arm up
 		armUp = new ArmUp(gamepad);

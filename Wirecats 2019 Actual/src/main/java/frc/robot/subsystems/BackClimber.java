@@ -12,6 +12,9 @@ public class BackClimber extends Subsystem {
     // Solenoid for back climber
     public DoubleSolenoid backClimber;
 
+    /**
+     * Create a new BackClimber instance, setting up solenoid
+     */
     public BackClimber() {
         super("BackClimber");
         backClimber = new DoubleSolenoid(RobotMap.climberBackForward, RobotMap.climberBackReverse);
@@ -26,19 +29,22 @@ public class BackClimber extends Subsystem {
     }
 
     /**
-     * Extends the solenoids to raise the robot up
+     * "Extends" the solenoid to raise back of robot up
      */
     public void liftBackUp() {
         backClimber.set(DoubleSolenoid.Value.kForward);
     }
 
     /**
-     * Retracts the solenoids to bring robot back down
+     * "Retracts" the solenoid to bring back of robot down
      */
     public void putBackDown() {
         backClimber.set(DoubleSolenoid.Value.kReverse);
     }
 
+    /**
+     * Turn solenoid off
+     */
     public void stop() {
         backClimber.set(DoubleSolenoid.Value.kOff);
     }

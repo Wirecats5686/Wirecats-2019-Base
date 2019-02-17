@@ -3,10 +3,16 @@ package frc.robot.commands;
 import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
 
+/**
+ * 
+ */
 public class BackClimbUp extends Command {
 
+    /**
+     * 
+     */
     public BackClimbUp() {
-        super(0.25);
+        super(Robot.SOLENOID_TIMEOUT);
         requires(Robot.backClimber);
         setInterruptible(true);
     }
@@ -25,11 +31,16 @@ public class BackClimbUp extends Command {
         return isTimedOut();
     }
 
+    /**
+     * 
+     */
     protected void end() {
         Robot.backClimber.stop();
     }
 
-    // subsystems is scheduled to run
+    /**
+     * 
+     */
     protected void interrupted() {
     	end();
     }

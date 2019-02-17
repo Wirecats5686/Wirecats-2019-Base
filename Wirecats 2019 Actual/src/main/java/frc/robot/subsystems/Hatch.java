@@ -2,19 +2,20 @@ package frc.robot.subsystems;
 
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
+import frc.robot.RobotMap;
 
 /**
- *  Class for double solenoid used for hatch mech of robot
+ *  Subystem Class for robot's hatch mechanism
  */
-public class HatchSolenoid extends Subsystem {
+public class Hatch extends Subsystem {
 	private DoubleSolenoid solenoid;
 
     /**
-     * Constructor for a double solenoid with values for the forward and reverse channels
+     * SAVED
      */
-    public HatchSolenoid (int forwardChannel, int reverseChannel){
+    public Hatch (){
         super("Double Solenoid");
-        solenoid = new DoubleSolenoid(forwardChannel, reverseChannel);
+        solenoid = new DoubleSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
     }
     
     /**

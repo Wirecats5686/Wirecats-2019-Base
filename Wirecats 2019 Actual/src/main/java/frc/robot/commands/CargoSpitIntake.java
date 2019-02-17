@@ -6,12 +6,12 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  * 
  */
-public class CargoSpit extends Command {
+public class CargoSpitIntake extends Command {
 
     /**
      * 
      */
-    public CargoSpit() {
+    public CargoSpitIntake() {
         requires(Robot.cargo);
         setInterruptible(true);      
     }
@@ -20,7 +20,7 @@ public class CargoSpit extends Command {
      * 
      */
     protected void execute() {
-        Robot.cargo.spitCargo();      
+        Robot.cargo.spitIntakeCargo();      
     }
 
     /**
