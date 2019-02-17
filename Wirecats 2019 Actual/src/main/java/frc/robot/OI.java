@@ -57,6 +57,9 @@ public class OI {
 	// For shooting cargo into Rocket
 	Trigger highCargoShoot;
 
+	// For spitting/re-intaking cargo
+	JoystickButton cargoSpit;
+
 	// For moving arm up
 	Trigger armUp;
 
@@ -76,11 +79,11 @@ public class OI {
 		gamepad = new Joystick(2);
 		
 		// Set hatch grab button & command
-		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.aButton);
+		hatchGrab = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
 		hatchGrab.whenPressed(new HatchGrab(0.5));
 
 		// Set hatch release button & command 
-		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.rightShoulder);
+		hatchRelease = new JoystickButton(gamepad, GamepadButtonMap.leftShoulder);
 		hatchRelease.whenPressed(new HatchRelease(0.5));
 
 		// Set up cargo intake button & command
@@ -94,6 +97,10 @@ public class OI {
 		// Set up low cargo shoot trigger and command (for Rocket)
 		lowCargoShoot = new LowShootTrigger(gamepad);
 		lowCargoShoot.whileActive(new CargoShoot(false));
+
+		// Set up cargo spit button and command
+		cargoSpit = new JoystickButton(gamepad, GamepadButtonMap.aButton);
+		cargoSpit.whileHeld(new CargoSpit());
 
 		// Set trigger and command for moving arm up
 		armUp = new ArmUp(gamepad);

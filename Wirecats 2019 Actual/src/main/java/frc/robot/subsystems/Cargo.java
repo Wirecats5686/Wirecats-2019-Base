@@ -6,7 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.WPI_TalonSRX;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
 /**
- * Cargo Subsystem code that is required for CargoIntake & CargoShoot commands
+ * Cargo Subsystem code that is required for CargoIntake, CargoShoot, & CargoSpit commands
  */
 public class Cargo extends Subsystem{
     private WPI_TalonSRX intake;
@@ -16,6 +16,7 @@ public class Cargo extends Subsystem{
     private static final double INTAKE_SPEED = 0.5;
     private static final double ROCKET_SHOOT = 0.5;
     private static final double SHIP_SHOOT = 0.85;
+    private static final double SPIT_SPEED = -0.5;
 
     public Cargo(){
         super("Cargo");
@@ -52,10 +53,23 @@ public class Cargo extends Subsystem{
         shoot.set(SHIP_SHOOT);
     }
 
+    /**
+     * Have robot either re-intake cargo from top or spit it out
+     */
+    public void spitCargo(){
+        shoot.set(SPIT_SPEED);
+    }
+
+    /**
+     * 
+     */
     public void stopIntake(){
 		intake.set(0);
     }
     
+    /**
+     * 
+     */
     public void stopShoot(){
 		shoot.set(0);
 	}
