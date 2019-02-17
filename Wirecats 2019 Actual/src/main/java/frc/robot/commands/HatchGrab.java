@@ -22,7 +22,7 @@ public class HatchGrab extends Command {
      * 
      */
     protected void execute() {
-        Robot.hatch.solenoidExtend();
+        Robot.hatch.grabHatch();
     }
 
     /**

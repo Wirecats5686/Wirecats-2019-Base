@@ -43,7 +43,7 @@ public class BackClimber extends Subsystem {
     }
 
     /**
-     * Turn solenoid off
+     * Stop solenoid execution
      */
     public void stop() {
         backClimber.set(DoubleSolenoid.Value.kOff);

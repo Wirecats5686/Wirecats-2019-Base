@@ -21,7 +21,7 @@ public class HatchRelease extends Command {
      * 
      */
     protected void execute() {
-        Robot.hatch.solenoidRetract();
+        Robot.hatch.releaseHatch();
     }
 
     /**

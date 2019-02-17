@@ -10,14 +10,18 @@ import edu.wpi.first.wpilibj.drive.DifferentialDrive;
 import edu.wpi.first.wpilibj.SpeedControllerGroup;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
-/*
-* Robot Drive Train for driving the robot
-*/
+/**
+ * Subystem class for DriveTrain of robot - used to drive Robot
+ */
 public class DriveTrain extends Subsystem {
+	// Drive platform used in robot
 	private static DifferentialDrive drive;
 	
+	// Speed controllers for right motors
 	private WPI_TalonSRX rightFront;
 	private WPI_VictorSPX rightRear;
+
+	// Speed controllers for left motors
 	private WPI_TalonSRX leftFront;
 	private WPI_VictorSPX leftRear;
 	
@@ -25,9 +29,12 @@ public class DriveTrain extends Subsystem {
 	private static final double BIAS_MULTIPLIER_RIGHT = 1;
 	private static final double BIAS_MULTIPLIER_LEFT = 1;
 	
-	private static final double BIAS_MULTIPLIER_RIGHT_SLOW  = .3;
-	private static final double BIAS_MULTIPLIER_LEFT_SLOW = .3;
-	
+	/**
+	 * Create new DriveTrain instance, involves: 
+	 * (1) Setting up Talons & Victors
+	 * (2) Creating speed controller groups
+	 * (3) Setting up DifferentialDrive
+	 */
 	public DriveTrain(){
 		super("DriveTrain");
 		
@@ -35,28 +42,35 @@ public class DriveTrain extends Subsystem {
 		rightRear = new WPI_VictorSPX(RobotMap.rightRearDrive);
 		leftFront = new WPI_TalonSRX(RobotMap.leftFrontDrive);
 		leftRear = new WPI_VictorSPX(RobotMap.leftRearDrive);
+
+		// Group right speed controllers together
 		SpeedControllerGroup m_left = new SpeedControllerGroup (leftFront, leftRear);
+		// Group left speed controllers together
 		SpeedControllerGroup m_right = new SpeedControllerGroup (rightFront, rightRear);
 		
+		// Set up Differential drive using speed controller groups
 		drive = new DifferentialDrive(m_left, m_right);
 	}
 	
+	/**
+	 * Have robot start in TankDrive mode
+	 */
 	public void initDefaultCommand() {
 		setDefaultCommand(new TankDrive());
 	}
 	
-	public void arcadeDrive(double x, double y){
-		drive.arcadeDrive(x, y);
-	}
-	
+	/**
+	 * Have the robot drive with speed and direction based on left and right values passed in
+	 * @param left
+	 * @param right
+	 */
 	public void drive(double left, double right){
 		drive.tankDrive(left * BIAS_MULTIPLIER_LEFT, right * BIAS_MULTIPLIER_RIGHT);
 	}
 	
-	public void slowDrive(double left, double right){
-		drive.tankDrive(left * BIAS_MULTIPLIER_LEFT_SLOW, right * BIAS_MULTIPLIER_RIGHT_SLOW);
-	}
-	
+	/**
+	 * Stop the robot by setting speed to 0
+	 */
 	public void stop() {
 		drive.tankDrive(0, 0);
 	}

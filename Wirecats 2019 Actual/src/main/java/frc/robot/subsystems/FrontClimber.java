@@ -4,10 +4,16 @@ import frc.robot.RobotMap;
 import edu.wpi.first.wpilibj.DoubleSolenoid;
 import edu.wpi.first.wpilibj.command.Subsystem;
 
+/**
+ * Subsytem class for Front Climber mechanism
+ */
 public class FrontClimber extends Subsystem {
-    
+    // Solenoid for front climber
     public DoubleSolenoid frontClimber;
 
+    /**
+     * Create a new FrontClimber instance, setting up solenoid
+     */
     public FrontClimber() {
         super("FrontClimber");
         frontClimber = new DoubleSolenoid(RobotMap.climberFrontForward, RobotMap.climberFrontReverse);
@@ -22,19 +28,22 @@ public class FrontClimber extends Subsystem {
     }
 
     /**
-     * Extends the solenoids to raise the robot up
+     * "Extends" the solenoid to raise front of robot up
      */
     public void liftFrontUp() {
         frontClimber.set(DoubleSolenoid.Value.kForward);
     }
 
     /**
-     * Retracts the solenoids to bring robot back down
+     * "Retracts" the solenoid to bring back of robot down
      */
     public void putFrontDown() {
         frontClimber.set(DoubleSolenoid.Value.kReverse);
     }
 
+    /**
+     * Stop solenoid execution
+     */
     public void stop() {
         frontClimber.set(DoubleSolenoid.Value.kOff);
     }

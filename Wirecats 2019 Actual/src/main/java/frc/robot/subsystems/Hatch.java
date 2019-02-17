@@ -8,13 +8,14 @@ import frc.robot.RobotMap;
  *  Subystem Class for robot's hatch mechanism
  */
 public class Hatch extends Subsystem {
-	private DoubleSolenoid solenoid;
+    // Solenoid for hatch mechanism
+    private DoubleSolenoid solenoid;
 
     /**
-     * SAVED
+     * Create new Hatch instance, setting up solenoid
      */
     public Hatch (){
-        super("Double Solenoid");
+        super("Hatch");
         solenoid = new DoubleSolenoid(RobotMap.hatchForward, RobotMap.hatchReverse);
     }
     
@@ -23,25 +24,25 @@ public class Hatch extends Subsystem {
 	 * we don't need arm to do anything when Robot is first enabled
      */
     public void initDefaultCommand() {
-        // Nothing needs to be called when we initialize this subsystem
+        // Do nothing
     }
 
     /**
-     * Used to have the solenoid execute an extend action
+     * "Extend" solenoid to grab a hatch panel
      */
-    public void solenoidExtend (){
+    public void grabHatch (){
         solenoid.set(DoubleSolenoid.Value.kForward);
     }
 
     /**
-     * Used to have the solenoid execute a retract action
+     * "Retract" solenoid to release hatch panel
      */
-    public void solenoidRetract(){
+    public void releaseHatch(){
         solenoid.set(DoubleSolenoid.Value.kReverse);
     }
 
     /**
-     * Used to stop the solenoid execution
+     * Stop solenoid execution
      */
     public void stop(){
         solenoid.set(DoubleSolenoid.Value.kOff);
