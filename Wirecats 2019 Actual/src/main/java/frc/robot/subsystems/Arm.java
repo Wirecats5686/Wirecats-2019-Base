@@ -58,7 +58,7 @@ public class Arm extends Subsystem{
 		// }else if(isArmUp() && speed < 0){
 		// 	armTalon.set(0);
 		// }else{		
-		// 	armTalon.set(speed*0.1);
+		// 	armTalon.set(speed*0.25);
 		// }
 		
 		// Set arm speed to 1/4 of the passed in speed

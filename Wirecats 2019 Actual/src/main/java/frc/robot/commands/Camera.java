@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 /**
  * Command for switching which camera is shown on dashboard

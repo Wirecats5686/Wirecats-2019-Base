@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 /**
  * Command for bringing back of robot down
@@ -18,7 +18,7 @@ public class BackClimbDown extends Command {
     }
 
     /**
-     *  Put back of robot down by calling appropriate method from subsystem
+     *  Put back of robot down when command is called
      */
     protected void execute() {
         Robot.backClimber.putBackDown();

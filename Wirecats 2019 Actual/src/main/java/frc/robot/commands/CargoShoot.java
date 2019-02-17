@@ -1,7 +1,7 @@
 package frc.robot.commands;
 
-import frc.robot.Robot;
 import edu.wpi.first.wpilibj.command.Command;
+import frc.robot.Robot;
 
 /**
  * Command for shooting cargo (either low or high shoot)
@@ -27,6 +27,7 @@ public class CargoShoot extends Command {
 
     /**
      * Shoot the cargo high or low (depending on highShoot flag)
+     *   when command is called
      */
     protected void execute() {
         if (isHighShoot) {

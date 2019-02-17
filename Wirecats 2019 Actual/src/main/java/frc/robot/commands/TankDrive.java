@@ -1,39 +1,40 @@
 package frc.robot.commands;
 
+import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
 
-import edu.wpi.first.wpilibj.command.Command;
-
 /**
- *
+ * Command for driving the robot
  */
 public class TankDrive extends Command {
 
+    /**
+     * Create new instance of DriveTrain, setting subsytem requirement
+     */
     public TankDrive() {
         requires(Robot.drivetrain);
-        
-        setInterruptible(true);
     }
 
-    // Called just before this Command runs the first time
-    protected void initialize() {}
-
-    // Called repeatedly when this Command is scheduled to run
+    /**
+     * Get Y values of left & right Joysticks to determine speed and 
+     *   direction in which the robot should drive
+     */
     protected void execute() {
     	Robot.drivetrain.drive(-Robot.oi.getLeft().getY(), -Robot.oi.getRight().getY());
     }
 
-    // Make this return true when this Command no longer needs to run execute()
+    /**
+     * This command should be constantly running as long as robot is enabled;
+     *   therefore, isFinished is set to always return false
+     */
     protected boolean isFinished() {
         return false;
     }
 
-    // Called once after isFinished returns true
-    protected void end() {}
-
-    // Called when another command which requires one or more of the same
-    // subsystems is scheduled to run
-    protected void interrupted() {
-    	end();
+    /**
+     * Stop driving if command is cancelled
+     */
+    protected void end() {
+        Robot.drivetrain.stop();
     }
 }
