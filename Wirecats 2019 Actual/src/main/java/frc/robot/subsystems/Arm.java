@@ -62,7 +62,7 @@ public class Arm extends Subsystem{
 		// }
 		
 		// Set arm speed to 1/4 of the passed in speed
-		armTalon.set(speed*0.25);
+		armTalon.set(speed*0.5);
 	}
 	
 	/**
