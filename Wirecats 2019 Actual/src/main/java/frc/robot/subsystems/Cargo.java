@@ -14,7 +14,7 @@ public class Cargo extends Subsystem{
     private WPI_TalonSRX shoot;
     
     // Speed for intaking cargo
-    private static final double INTAKE_SPEED = 0.5;
+    private static final double INTAKE_SPEED = 0.6;
 
     // Speed for shooting cargo into rocket
     private static final double ROCKET_SHOOT = 0.5;
@@ -23,7 +23,7 @@ public class Cargo extends Subsystem{
     private static final double SHIP_SHOOT = 0.85;
 
     // Speed for re-intaking/spitting cargo from top
-    private static final double SPIT_INTAKE = -0.5;
+    private static final double SPIT_INTAKE = -0.6;
 
     /**
      * Create a new Cargo instance, setting up talons
