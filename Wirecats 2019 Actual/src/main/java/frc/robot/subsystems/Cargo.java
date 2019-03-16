@@ -17,10 +17,10 @@ public class Cargo extends Subsystem{
     private static final double INTAKE_SPEED = 0.6;
 
     // Speed for shooting cargo into rocket
-    private static final double ROCKET_SHOOT = 0.5;
+    private static final double ROCKET_SHOOT = 0.6;
 
     // Speed for shooting cargo into cargo ship
-    private static final double SHIP_SHOOT = 0.85;
+    private static final double SHIP_SHOOT = 0.98;
 
     // Speed for re-intaking/spitting cargo from top
     private static final double SPIT_INTAKE = -0.6;

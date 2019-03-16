@@ -25,7 +25,7 @@ public class RobotMap {
 	public static int hatchReverse = 6;
 
 	// Port numbers for climber Solenoid channels
-	public static int climberBackForward = 3;
+	public static int climberBackForward = 4;
 	public static int climberBackReverse = 2;
 	public static int climberFrontForward = 1;
 	public static int climberFrontReverse = 0;
