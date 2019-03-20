@@ -19,11 +19,17 @@ public class DriveTrain extends Subsystem {
 	
 	// Speed controllers for right motors
 	private WPI_TalonSRX rightFront;
-	private WPI_VictorSPX rightRear;
+	//doc oc code:
+	//private WPI_VictorSPX rightRear;
+	//shuri tester:
+	private WPI_TalonSRX rightRear;
 
 	// Speed controllers for left motors
 	private WPI_TalonSRX leftFront;
-	private WPI_VictorSPX leftRear;
+	//doc oc
+	//private WPI_VictorSPX leftRear;
+	//shuri tester
+	private WPI_TalonSRX leftRear;
 	
 	// tune these to adjust it so the joysticks act the same
 	private static final double BIAS_MULTIPLIER_RIGHT = 1;
@@ -39,9 +45,15 @@ public class DriveTrain extends Subsystem {
 		super("DriveTrain");
 		
 		rightFront = new WPI_TalonSRX(RobotMap.rightFrontDrive);
-		rightRear = new WPI_VictorSPX(RobotMap.rightRearDrive);
 		leftFront = new WPI_TalonSRX(RobotMap.leftFrontDrive);
-		leftRear = new WPI_VictorSPX(RobotMap.leftRearDrive);
+		//Doc oc code:
+		//rightRear = new WPI_VictorSPX(RobotMap.rightRearDrive);
+		//leftRear = new WPI_VictorSPX(RobotMap.leftRearDrive);
+		//shuri modified code:
+		rightRear = new WPI_TalonSRX(RobotMap.rightRearDrive);
+		leftRear = new WPI_TalonSRX(RobotMap.leftRearDrive);
+		
+
 
 		// Group right speed controllers together
 		SpeedControllerGroup m_left = new SpeedControllerGroup (leftFront, leftRear);
@@ -75,4 +87,3 @@ public class DriveTrain extends Subsystem {
 		drive.tankDrive(0, 0);
 	}
 }
-

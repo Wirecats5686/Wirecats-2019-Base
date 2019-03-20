@@ -8,10 +8,16 @@ package frc.robot;
  */
 public class RobotMap {
 	// Drive train CAN IDs
+	//doc oc code:
+	//public static int rightFrontDrive = 2;
+	//public static int rightRearDrive = 1;
+	//public static int leftFrontDrive = 3;
+	//public static int leftRearDrive = 4;
+	//shuri tester code
 	public static int rightFrontDrive = 2;
-	public static int rightRearDrive = 1;
+	public static int rightRearDrive = 4;
 	public static int leftFrontDrive = 3;
-	public static int leftRearDrive = 4;
+	public static int leftRearDrive = 1;	
     
 	// Cargo CAN IDs
 	public static int cargoIntake = 6;
