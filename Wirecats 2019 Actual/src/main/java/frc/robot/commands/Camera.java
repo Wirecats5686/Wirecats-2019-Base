@@ -2,6 +2,8 @@ package frc.robot.commands;
 
 import edu.wpi.first.wpilibj.command.Command;
 import frc.robot.Robot;
+import edu.wpi.cscore.VideoSource.ConnectionStrategy;
+
 
 /**
  * Command for switching which camera is shown on dashboard
@@ -26,10 +28,12 @@ public class Camera extends Command {
       */
      protected void execute(){
         if(isFrontCamera) {
+            Robot.frontCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
             Robot.server.setSource(Robot.backCamera);
             isFrontCamera = false;
         }
         else {
+            Robot.backCamera.setConnectionStrategy(ConnectionStrategy.kKeepOpen);
             Robot.server.setSource(Robot.frontCamera);
             isFrontCamera = true;
         }

@@ -70,7 +70,7 @@ public class Robot extends TimedRobot {
     // Create camera and camera server objects
     backCamera = CameraServer.getInstance().startAutomaticCapture(0);
     frontCamera = CameraServer.getInstance().startAutomaticCapture(1);
-    server = CameraServer.getInstance().getServer();
+    server = CameraServer.getInstance().addSwitchedCamera("USB Camera");
 
     // Display video from front camera to start
     server.setSource(frontCamera);
